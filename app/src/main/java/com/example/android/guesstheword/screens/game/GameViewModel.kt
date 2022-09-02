@@ -5,6 +5,7 @@ import android.text.format.DateUtils
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class GameViewModel :ViewModel(){
@@ -15,6 +16,8 @@ class GameViewModel :ViewModel(){
 
     // The current score
    private val _score = MutableLiveData<Int>()
+
+
 
     val score : LiveData<Int>
         get() = _score
@@ -40,6 +43,12 @@ class GameViewModel :ViewModel(){
     private val _currentTime = MutableLiveData<Long>()
     val currentTime :LiveData<Long>
     get() = _currentTime
+
+    // transform current time
+    val currentTimeString = Transformations.map(currentTime, {
+        time -> DateUtils.formatElapsedTime(time)
+    })
+
 
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>

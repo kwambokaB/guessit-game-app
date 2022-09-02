@@ -69,9 +69,9 @@ class GameFragment : Fragment() {
 //        }
 
         // binding.timerText.
-        viewModel.currentTime.observe(this, Observer { updatedTime ->
-            binding.timerText.text = DateUtils.formatElapsedTime(updatedTime)
-        })
+//        viewModel.currentTime.observe(this, Observer { updatedTime ->
+//            binding.timerText.text = DateUtils.formatElapsedTime(updatedTime)
+//        })
 //
 //        viewModel.score.observe(this, Observer { newScore ->
 //            binding.scoreText.text = newScore.toString()
